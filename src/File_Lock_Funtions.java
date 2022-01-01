@@ -4,22 +4,8 @@ import java.util.ArrayList;
 
 public class File_Lock_Funtions {
 	
-	//Insertion sort to sort file names in ascending order
-	protected static String[] sort_sub(String array[], int size){
-		String temp = "";
-		for(int i=0; i<size; i++){
-			for(int j=i+1; j<size; j++){
-				if(array[i].compareToIgnoreCase(array[j])>0){
-					temp = array[i];
-					array[i]=array[j];
-					array[j]=temp;
-				}
-			}
-		}
-		return array;
-	}
 	
-	//File listing function
+	//Method to List files
 	protected static void get_List_of_Files() {
 		
 		int fileCount = 0;
@@ -51,7 +37,23 @@ public class File_Lock_Funtions {
 
 	}
 	
-	//File delete function
+
+	//Using insertion sort method to sort files in asc order.
+	protected static String[] sort_sub(String array[], int size){
+		String temp = "";
+		for(int i=0; i<size; i++){
+			for(int j=i+1; j<size; j++){
+				if(array[i].compareToIgnoreCase(array[j])>0){
+					temp = array[i];
+					array[i]=array[j];
+					array[j]=temp;
+				}
+			}
+		}
+		return array;
+	}
+	
+	//Method to delete a file
 	protected static void to_Delete_file(String fileToBeDeleted) {
 		
 		File file = new File( (System.getProperty("user.dir") ) + "\\" + fileToBeDeleted );
@@ -65,12 +67,12 @@ public class File_Lock_Funtions {
 		}
 	}
 	
-	//File search function
+	//Method to Search a File
 	protected static void to_Search_File(String fileToBeSearched) {
 		File file = new File( (System.getProperty("user.dir") ) + "\\" + fileToBeSearched );
 		
-		//Check whether file whether file exists or not.
-		//If yes then display corresponding message
+		// here we will check if the file exists or not.
+		//So if the file is there then display a message for it.
 		if(file.exists()) {
 			System.out.println(" TheFile exits!");
 		} else {
@@ -88,9 +90,9 @@ public class File_Lock_Funtions {
 			} else {
 				System.out.println(" The File already exists :(");
 			}
-		} catch (IOException e) {
+		} catch (IOException ex) {
 			
-			e.printStackTrace();
+			ex.printStackTrace();
 		}
 	}
 
