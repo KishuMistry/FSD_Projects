@@ -54,7 +54,7 @@ public static void main(String[] args) {
 			}
 			System.out.print("\nPlease enter your choice : ");
 			
-			//Choice Input for calculation
+			//Choice Input
 			choice = scan.nextInt();
 			
 			switch(choice) {
